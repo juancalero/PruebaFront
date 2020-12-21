@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']"> <i class="fas fa-home"></i> Inicio</a>
+        </li>
+        -->
+        <!--
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/generos']" [routerLinkActive]="['active']">Géneros de pelicuas</a>
+        </li>
+        -->
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/cartelera']" [routerLinkActive]="['active']"><i class="fas fa-film"></i> Cartelera</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/favoritas']" [routerLinkActive]="['active']"><i class="fas fa-star-half-alt"></i> Favoritas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/top']" [routerLinkActive]="['active']"><i class="fas fa-list-ol"></i> Top</a>
+        </li>
+      </ul>
+      <div>
+        <input #txtBuscar (keyup.enter)="buscarPelicula(txtBuscar.value)" class="form-control" type="text" placeholder="Buscar" aria-label="Search">
+      </div>
+    </div>
+  </div>
+</nav>
