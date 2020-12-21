@@ -1,0 +1,28 @@
+<div class="album bg-light">
+ <div class="container">
+   <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
+     <div class="col" *ngFor="let pelicula of peliculasFinales ">
+       <div class="card shadow-sm" *ngIf="pelicula.favorito==true">
+         <img class="bd-placeholder-img card-img-top img-fluid" width="100%" height="250" src="https://image.tmdb.org/t/p/w500/{{pelicula.datos.poster_path}}">
+         <div class="card-body">
+           <strong><p class="card-title">{{pelicula.datos.title}}</p></strong>
+           <p class="card-text">{{pelicula.datos.overview}}</p>
+           <div class="d-flex justify-content-between align-items-center">
+             <div class="btn-group">
+               <button type="button" class="btn btn-sm btn-success" [routerLink]="['/pelicula', pelicula.datos.id]"><i class="fas fa-eye"></i> Ver</button>
+               <small class="text-muted m-auto m-lg-2"><i class="fas fa-clock"></i>{{pelicula.datos.release_date}}</small>
+             </div>
+
+             <small class="text-muted"><i class="fas fa-star"></i>{{pelicula.datos.vote_average}}</small>
+           </div>
+
+         </div>
+
+       </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
