@@ -4,17 +4,34 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ListadoComponent } from './components/listado/listado.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { PuntuadosComponent } from './components/puntuados/puntuados.component';
+import { FilmService } from './service/film.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuscadorComponent,
+    ListadoComponent,
+    DetalleComponent,
+    FavoritosComponent,
+    PuntuadosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [FilmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
