@@ -1,1 +1,36 @@
-<p>detalle works!</p>
+<div class="mt-4 mb-4" id="bot">
+    <button class="bt btn-lg btn-info"(click)='volver()'>Volver</button>
+</div>
+<div class="container-fluid mt-5" id="cont">
+    <div class="row d-flex justify-content-between">
+        <div class="col">
+            <img src="https://image.tmdb.org/t/p/w500/{{peli.poster_path}}" alt="{{peli.original_title}}">
+        </div>
+        <div class="col mx-auto text-center">
+            <h1 class="mt-5">{{peli.original_title}}</h1>
+            <h2 class="mt-5">{{peli.title}}</h2>
+            <div class="mx-auto etxt-center mt-2">
+                <h3>Valoración</h3>
+                <h5>{{peli.vote_average}}</h5>
+            </div>
+            <div class="mt-5">
+                <h3>Géneros</h3>
+                <span *ngFor="let gen of peli.genres">
+                    <h5 class="line"> {{gen.name}} </h5>
+                </span>
+            </div>
+            <div class="mt-5">
+                <h3>Director</h3>
+                <h5>{{director}}</h5>
+            </div>
+            <div class="mt-5 mb-5">
+                <h3>Elenco</h3>
+                    <span *ngFor="let elem of elenco">
+                        <span>   {{elem}}   </span>
+                    </span>
+                </div>
+        </div>
+    </div>
+    
+</div>
+

@@ -3,6 +3,8 @@ import { from, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FilmSearchResponse } from '../interfaces/filmSearchResponse';
 import { GenerosResponse } from '../interfaces/filmSearchResponse';
+import { FilmResponse } from '../interfaces/filmDetailResponse';
+import { CrewResponse } from '../interfaces/crewResponse';
 
 
 @Injectable({
@@ -18,6 +20,14 @@ export class FilmService {
 
   getBusqueda(title: string, page: number):Observable<FilmSearchResponse>{
     return this.http.get<FilmSearchResponse>(`${this.url}/search/movie/?api_key=${this.key}&language=es-ES&query=${title}&page=${page}&include_adult=true`);
+  }
+
+  getPelicula(id: number):Observable<FilmResponse>{
+    return this.http.get<FilmResponse>(`${this.url}/movie/${id}?api_key=${this.key}&language=es-ES`);
+  }
+
+  getElenco(id: number):Observable<CrewResponse>{
+    return this.http.get<CrewResponse>(`${this.url}/movie/${id}/credits?api_key=${this.key}&language=es-ES`);
   }
 
   getGeneros():Observable<GenerosResponse>{
