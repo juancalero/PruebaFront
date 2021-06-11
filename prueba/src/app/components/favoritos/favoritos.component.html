@@ -1,1 +1,9 @@
-<p>favoritos works!</p>
+<div class="mx-auto text-centre mt-2 mb-4" id="cont">
+    <h2>Listado de favoritos</h2>
+    <div class="d-flex mt-5">
+        <div *ngFor="let elem of listado" id="elem">
+            <span>  {{elem}}  </span>
+        </div>
+    </div>
+    
+</div>

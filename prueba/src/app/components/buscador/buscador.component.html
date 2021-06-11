@@ -6,6 +6,11 @@
     </form>
   </nav>
 
+  <div class="mb-3 mt-3 mx-auto w-50 d-flex justify-content-around">
+    <a href="" type="button" class="btn btn-info" [routerLink]="['/favoritos']"> Ver favoritos</a>
+    <a href="" type="button" class="btn btn-info" [routerLink]="['/valoraciones']"> Ver valoraciones</a>
+  </div>
+
   <div *ngIf='load'>
       <app-listado [listado]="listado" [title]="title" [max]="max"></app-listado>
   </div>

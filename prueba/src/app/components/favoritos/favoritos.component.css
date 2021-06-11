@@ -1,0 +1,12 @@
+#cont{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+#elem{
+    text-align: center;
+    margin: auto;
+    font-size: 18pt;
+    font-weight: bold;
+}
