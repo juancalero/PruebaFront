@@ -1,0 +1,15 @@
+.img{
+    width: 250px;
+}
+
+#lista{
+    width: 80%;
+    margin: auto;
+}
+
+#botonera{
+    width: 30%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
