@@ -1,0 +1,20 @@
+<div class="container-fluid mx-auto mt-4">
+    <div class="row" id="lista">
+        <div class="col-3 mt-4" *ngFor="let item of listado">
+            <div class="mx-auto">
+                <h2>{{item.title}}</h2>
+                <div *ngIf="item.poster_path" class="text-center mx-auto">
+                    <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" class="img" alt="{{item.original_language}}">
+                </div>
+                <h4>Géneros: </h4>
+                <app-generos [generos]="item.genre_ids"></app-generos>
+                <h4>Fecha de estreno: {{item.release_date}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto d-flex justify-content-between" id="botonera">
+        <button class="btn btn-primary" (click)='anterior()' [disabled]="!ant">Anterior</button>
+        <button class="btn btn-primary" (click)='siguiente()' [disabled]="!sig">Siguiente</button>
+    </div>
+</div>
+
