@@ -34,3 +34,15 @@
     
 </div>
 
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-4" id="bot">
+            <button class="bt btn-lg btn-info"(click)='anyadir(peli.id)' *ngIf='!ok'>Añadir a favoritos</button>
+            <button class="bt btn-lg btn-info"(click)='quitar(peli.id)' *ngIf='ok'>Quitar de favoritos</button>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+
