@@ -13,6 +13,7 @@ import { FilmService } from './service/film.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { GenerosComponent } from './components/generos/generos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     ListadoComponent,
     DetalleComponent,
     FavoritosComponent,
-    PuntuadosComponent
+    PuntuadosComponent,
+    GenerosComponent
   ],
   imports: [
     BrowserModule,

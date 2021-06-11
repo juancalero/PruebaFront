@@ -7,7 +7,7 @@
   </nav>
 
   <div *ngIf='load'>
-      <app-listado [listado]="listado"></app-listado>
+      <app-listado [listado]="listado" [title]="title" [max]="max"></app-listado>
   </div>
   <div *ngIf='fail' class="w-50 mx-auto text-center mt-3">
     <h3>No se ha podido encontrar nunguna película</h3>    

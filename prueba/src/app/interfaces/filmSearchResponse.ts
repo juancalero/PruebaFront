@@ -21,3 +21,12 @@ export interface FilmSearch {
   vote_average: number;
   vote_count: number;
 }
+
+export interface GenerosResponse {
+  genres: Genre[];
+}
+
+export interface Genre {
+  id: number;
+  name: string;
+}

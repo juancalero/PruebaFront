@@ -17,6 +17,7 @@ export class BuscadorComponent implements OnInit {
   fail = false;
   load = false;
   listado: FilmSearch[] = [];
+  max: number;
 
   constructor(private service:FilmService) { }
 
@@ -25,14 +26,13 @@ export class BuscadorComponent implements OnInit {
 
   buscar(){
     
-    this.service.getBusqueda(this.title).subscribe(
-      (response) => {       
-        debugger                 
+    this.service.getBusqueda(this.title, 1).subscribe(
+      (response) => {                        
        this.listado = response.results;
+       this.max = response.total_pages;
        this.cargar();
       },
       (error) => {
-        debugger
         this.fallo();
       }
     )
