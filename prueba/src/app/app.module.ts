@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GenerosComponent } from './components/generos/generos.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+import { FirebaseService } from './service/firebase.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +35,11 @@ import { GenerosComponent } from './components/generos/generos.component';
     NgbModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [FilmService],
+  providers: [FilmService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
