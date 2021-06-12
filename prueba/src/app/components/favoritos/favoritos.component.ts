@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from "@angular/common";
-import { FilmService } from 'src/app/service/film.service';
-import { FilmResponse } from '../../interfaces/filmDetailResponse';
+import { FirebaseService } from 'src/app/service/firebase.service';
+import { FavoritoResponse, FavoritoData } from 'src/app/interfaces/favoritoResponse';
 
 @Component({
   selector: 'app-favoritos',
@@ -10,21 +10,51 @@ import { FilmResponse } from '../../interfaces/filmDetailResponse';
 })
 export class FavoritosComponent implements OnInit {
 
-  listado: string[] = [];
+  fav: FavoritoResponse[] = [];
 
-  constructor(private service:FilmService, private location: Location) { }
+  constructor(private baseService: FirebaseService, private location: Location) { }
 
   ngOnInit(): void {
+    this.cargarListaFav();
+  }
 
-    var fav = JSON.parse(localStorage.getItem("fav"));
+  cargarListaFav(){
 
-    fav.forEach(element => {
-      this.service.getPelicula(element).subscribe(
-      (response) => {                
-       this.listado.push(response.title);
+    let list: FavoritoResponse[] = [];
+    this.baseService.getFavoritos().subscribe(
+      (response) => {  
+        list = response.map((e) => {
+          const d = e.payload.doc.data() as any;
+          const favoritoData = {
+            id: d.id,
+            anyo: d.anyo,
+            director: d.director,
+            name: d.name,
+            poster: d.poster
+          } as FavoritoData;
+          return {
+            id: e.payload.doc.id,
+            data: favoritoData
+          } as FavoritoResponse;
+        });
+        this.fav = list;
       }
     )
+  }
+
+  volver(){
+    this.location.back()
+  }
+
+  quitar(id: number){
+    
+    this.fav.forEach(element => {
+      if(id == element.data?.id){
+        this.baseService.deleteFavorito(element);
+      }
     });
+
+    this.cargarListaFav();
   }
 
 

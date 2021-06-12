@@ -22,7 +22,6 @@ export class ListadoComponent implements OnInit {
   constructor(private service:FilmService) { }
 
   ngOnInit(): void {
-    debugger
     if(this.page == 1){
       this.ant = false;
     }
