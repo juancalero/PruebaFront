@@ -1,8 +1,15 @@
+<div class="mt-4 mb-4" id="bot">
+    <button class="bt btn-lg btn-info"(click)='volver()'>Volver</button>
+</div>
 <div class="mx-auto text-centre mt-2 mb-4" id="cont">
     <h2>Listado de favoritos</h2>
     <div class="d-flex mt-5">
-        <div *ngFor="let elem of listado" id="elem">
-            <span>  {{elem}}  </span>
+        <div *ngFor="let elem of fav" id="elem">
+            <span>  {{elem.data?.name}}  </span>
+            <span>  {{elem.data?.director}}  </span>
+            <span>  {{elem.data?.anyo}}  </span>
+            <img src="https://image.tmdb.org/t/p/w500/{{elem.data?.poster}}" alt=" {{elem.data?.name}}">
+            <button (click)='quitar(elem.data?.id)'>Eliminar</button>
         </div>
     </div>
     
