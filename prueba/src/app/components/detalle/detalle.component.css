@@ -1,0 +1,48 @@
+.img{
+    width: 550px;
+}
+
+.line{
+    display: inline;
+}
+
+.btn-info{
+  border: none;
+  background-color: #4b545e;
+}
+
+.info{
+  
+  color: #e0e0e0;
+}
+
+#cont{
+    margin: auto;
+    width: 80%;
+}
+#bot{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.starrating > input {display: none;}  
+
+.starrating > label:before { 
+  
+  margin: 2px;
+  font-size: 8em;
+  
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  color: #8d8d8d; 
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } 
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  }

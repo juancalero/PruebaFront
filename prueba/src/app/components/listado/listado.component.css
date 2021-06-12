@@ -1,0 +1,30 @@
+.img{
+    width: 100%;
+}
+
+#lista{
+    width: 80%;
+    margin: auto;
+}
+
+#botonera{
+    width: 30%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.card{
+    width: 380px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+p{
+    font-weight: bold;
+    color:#e0e0e0;
+}
+
+a{
+    color: azure;
+}

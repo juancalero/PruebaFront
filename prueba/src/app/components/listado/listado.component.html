@@ -1,0 +1,21 @@
+<div class="container-fluid mx-auto mt-4">
+    <div class="row" id="lista">
+        <div class="col-3 mt-4 card" *ngFor="let item of listado">
+            <div class="mx-auto">
+                <div *ngIf="item.poster_path" class="text-center mx-auto card-img-top">
+                    <a href="" [routerLink]="['/pelicula', item.id]"><img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" class="img" alt="{{item.original_language}}"></a>
+                </div>
+                <div class="card-body">
+                    <h5><a href="" [routerLink]="['/pelicula', item.id]">{{item.title}}</a></h5>
+                    <p class="mb-2">{{item.release_date | slice :0:4 }}</p>
+                    <app-generos [generos]="item.genre_ids"></app-generos>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto d-flex justify-content-between" id="botonera">
+        <button class="btn btn-primary" (click)='anterior()' [disabled]="!ant">Anterior</button>
+        <button class="btn btn-primary" (click)='siguiente()' [disabled]="!sig">Siguiente</button>
+    </div>
+</div>
+

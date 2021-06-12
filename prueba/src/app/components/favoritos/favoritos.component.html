@@ -1,0 +1,19 @@
+<div class="mt-4 mb-4 mx-auto mw-100 text-center" id="bot">
+    <button class="bt btn-lg btn-info" (click)='volver()'>Volver</button>
+</div>
+<div class="mx-auto mt-2 mb-4" id="cont">
+    <h2>Listado de favoritos</h2>
+    <div class="row">
+        <div class="col-3 mt-4 card" *ngFor=" let elem of fav" id="elem">
+            <div class="card-img-top">
+                <img src="https://image.tmdb.org/t/p/w500/{{elem.data?.poster}}" class="w-100" alt="{{elem.data?.name}}">
+            </div>
+            <div class="card-body">
+                <h3> {{elem.data?.name}} </h3>
+                <h5> {{elem.data?.director}} </h5>
+                <h5> {{elem.data?.anyo | slice :0:4 }} </h5>
+            </div>
+            <button class="btn btn-danger" (click)='quitar(elem.data?.id)'>Eliminar</button>
+        </div>
+    </div>
+</div>

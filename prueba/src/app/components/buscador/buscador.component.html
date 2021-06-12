@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <h2 >Buscador de películas</h2>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" name="title" type="search" placeholder="Buscar la película" aria-label="Search" id="title" [(ngModel)]="title" (ngModelChange)="title = $event">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)='buscar()'>Buscar</button>
+    </form>
+  </nav>
+
+  <div class="mb-3 mt-3 mx-auto w-50 d-flex justify-content-around">
+    <a href="" type="button" class="btn btn-info btn-lg" [routerLink]="['/favoritos']"> Ver favoritos</a>
+    <a href="" type="button" class="btn btn-info btn-lg" [routerLink]="['/valoraciones']"> Ver valoraciones</a>
+  </div>
+
+  <div *ngIf='load'>
+      <app-listado [listado]="listado" [title]="title" [max]="max"></app-listado>
+  </div>
+  <div *ngIf='fail' class="w-50 mx-auto text-center mt-3">
+    <h3>No se ha podido encontrar nunguna película</h3>    
+</div>
