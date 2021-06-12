@@ -14,6 +14,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit {
+  
 
   id: number;
   peli: FilmResponse;
@@ -68,6 +69,8 @@ export class DetalleComponent implements OnInit {
   volver(){
     this.location.back()
   }
+
+  //FAVORITOS
 
   comprobarExistenciaFav(id: number){
     let ok = false;
@@ -129,6 +132,8 @@ export class DetalleComponent implements OnInit {
     this.cargarListaFav();
   }
 
+  //CRÍTICA
+
   obtenerCritica(id: number){
 
     let crit: OpinionResponse = {} as any;
@@ -167,6 +172,7 @@ export class DetalleComponent implements OnInit {
   }
 
   guardarCritica(){
+    debugger
     let opinionData = {
       id: this.id,
       opinion: this.textCritForm.value,
@@ -184,6 +190,7 @@ export class DetalleComponent implements OnInit {
   }
 
   eliminarCritica(){
+    debugger
     this.baseService.deleteOpinion(this.crit);
     window.location.reload();
   }

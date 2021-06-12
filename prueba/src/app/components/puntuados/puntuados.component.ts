@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmService } from 'src/app/service/film.service';
-import { FilmResponse } from '../../interfaces/filmDetailResponse';
 import { Location } from "@angular/common";
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { OpinionResponse, OpinionData } from 'src/app/interfaces/opinionResponse';

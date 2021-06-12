@@ -1,60 +1,123 @@
 <div class="mt-4 mb-4" id="bot">
-    <button class="bt btn-lg btn-info"(click)='volver()'>Volver</button>
+    <button class="bt btn-lg btn-info" (click)='volver()'>
+        <h3>Volver</h3>
+    </button>
 </div>
 <div class="container-fluid mt-5" id="cont">
     <div class="row d-flex justify-content-between">
         <div class="col">
             <img src="https://image.tmdb.org/t/p/w500/{{peli.poster_path}}" alt="{{peli.original_title}}">
         </div>
-        <div class="col mx-auto text-center">
+        <div class="col mx-auto pr-5 info">
+
             <h1 class="mt-3">{{peli.original_title}}</h1>
             <h2 class="mt-3">{{peli.title}}</h2>
-            <div class="mx-auto etxt-center mt-2">
-                <h3>Valoración</h3>
-                <h5>{{peli.vote_average}}</h5>
+            <div class="mx-auto etxt-center mt-4">
+                <h4 class="d-inline">Valoración: </h4>
+                <h5 class="d-inline"> {{peli.vote_average}}</h5>
             </div>
             <div class="mt-3">
-                <h3>Géneros</h3>
-                <span *ngFor="let gen of peli.genres">
-                    <h5 class="line"> {{gen.name}} </h5>
+                <h4 class="d-inline">Géneros: </h4>
+                <span *ngFor="let gen of peli.genres; let i = index" [attr.data-index]="i">
+                    <h5 class="line" *ngIf="i !== 0">, {{gen.name | lowercase}} </h5>
+                    <h5 class="line" *ngIf="i == 0"> {{gen.name}} </h5>
                 </span>
             </div>
             <div class="mt-3">
-                <h3>Director</h3>
-                <h5>{{director}}</h5>
+                <h4 class="d-inline">Director: </h4>
+                <h5 class="mt-1">{{director}}</h5>
             </div>
             <div class="mt-3 mb-5">
-                <h3>Elenco</h3>
-                    <span *ngFor="let elem of elenco">
-                        <span>   {{elem}}   </span>
+                <h4 class="d-inline">Elenco</h4>
+                <div>
+                    <span *ngFor="let elem of elenco; let i = index" [attr.data-index]="i">
+                        <span *ngIf="i !== 0"> - {{elem}} </span>
+                        <span *ngIf="i == 0"> {{elem}} </span>
                     </span>
                 </div>
-        </div>
-        <div class="mx-auto text-center">
-            <h3>Crítica</h3>
-            <div class="d-flex justify-content-between">
-                <textarea id="opinion" name="review" [formControl]="textCritForm" rows="4" cols="50"></textarea>
-                <div>
-                    <input type="number" max="10" min="0" [formControl]="numStForm">  
-                </div>
-                <button class="bt btn-lg btn-info"(click)='guardarCritica()' *ngIf='!existCrit'> Comentar </button>
-                <button class="bt btn-lg btn-info"(click)='editarCritica()' *ngIf='existCrit'> Editar </button>
+
             </div>
-            <button class="bt btn-lg btn-info"(click)='eliminarCritica()' *ngIf='existCrit'> Eliminar crítica </button>
+
+
+
+            <div class="mx-auto text-center">
+                <h3>Crítica</h3>
+                <div class="mx-auto mw-100">
+                    <textarea class="w-75 mb-2" id="opinion" name="review" [formControl]="textCritForm" rows="4"
+                        cols="50"></textarea>
+                    <div>
+                        <div class="starrating risingstar d-flex justify-content-center flex-row-reverse mb-3">
+                            <input type="radio" id="star10" name="rating" value="10" [formControl]="numStForm" /><label
+                                for="star10" title="10 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star9" name="rating" value="9" [formControl]="numStForm" /><label
+                                for="star9" title="9 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star8" name="rating" value="8" [formControl]="numStForm" /><label
+                                for="star8" title="8 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star7" name="rating" value="7" [formControl]="numStForm" /><label
+                                for="star7" title="7 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star6" name="rating" value="6" [formControl]="numStForm" /><label
+                                for="star6" title="6 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star5" name="rating" value="5" [formControl]="numStForm" /><label
+                                for="star5" title="5 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star4" name="rating" value="4" [formControl]="numStForm" /><label
+                                for="star4" title="4 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star3" name="rating" value="3" [formControl]="numStForm" /><label
+                                for="star3" title="3 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star2" name="rating" value="2" [formControl]="numStForm" /><label
+                                for="star2" title="2 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                            <input type="radio" id="star1" name="rating" value="1" [formControl]="numStForm" /><label
+                                for="star1" title="1 star">
+                                <fa-icon [icon]="['fas','star']"></fa-icon>
+                            </label>
+                        </div>
+                        <div class="w-50 mx-auto d-flex justify-content-around">
+                            <button class="bt btn-lg btn-info" (click)='guardarCritica()' *ngIf='!existCrit'> Comentar
+                            </button>
+                            <button class="bt btn-lg btn-info" (click)='editarCritica()' *ngIf='existCrit'> Editar
+                            </button>
+                            <button class="bt btn-lg btn-info" (click)='eliminarCritica()' *ngIf='existCrit'> Eliminar
+                                crítica
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
-    
+
 </div>
 
 <div class="container-fluid mt-5 mb-5">
     <div class="row">
         <div class="col-4" id="bot">
-            <button class="bt btn-lg btn-info"(click)='anyadir(peli.id)' *ngIf='!existFav'>Añadir a favoritos</button>
-            <button class="bt btn-lg btn-info"(click)='quitar(peli.id)' *ngIf='existFav'>Quitar de favoritos</button>
+            <button class="bt btn-lg btn-info" (click)='anyadir(peli.id)' *ngIf='!existFav'>Añadir a favoritos</button>
+            <button class="bt btn-lg btn-info" (click)='quitar(peli.id)' *ngIf='existFav'>Quitar de favoritos</button>
         </div>
         <div>
 
         </div>
     </div>
 </div>
-
