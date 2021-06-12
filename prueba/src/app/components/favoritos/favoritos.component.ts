@@ -29,7 +29,8 @@ export class FavoritosComponent implements OnInit {
             id: d.id,
             anyo: d.anyo,
             director: d.director,
-            name: d.name
+            name: d.name,
+            poster: d.poster
           } as FavoritoData;
           return {
             id: e.payload.doc.id,
@@ -43,10 +44,6 @@ export class FavoritosComponent implements OnInit {
 
   volver(){
     this.location.back()
-  }
-
-  refrescar(){
-
   }
 
   quitar(id: number){

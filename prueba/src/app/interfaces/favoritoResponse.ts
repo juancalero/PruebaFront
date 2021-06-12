@@ -8,4 +8,5 @@ export interface FavoritoData{
     id?: number;
     director?: string;
     name?: string;
+    poster?: string;
 }

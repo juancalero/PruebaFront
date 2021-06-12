@@ -35,5 +35,11 @@ export class FirebaseService {
     this.firestore.doc('opi/' + opi.id).delete();
   }
 
+  updateOpinion(opi: OpinionResponse){
+    if(opi.data != undefined){
+     this.firestore.doc('opi/' + opi.id).update(opi.data);
+    }
+ }
+
 
 }

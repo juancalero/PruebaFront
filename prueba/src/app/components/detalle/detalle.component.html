@@ -31,15 +31,16 @@
                 </div>
         </div>
         <div class="mx-auto text-center">
-            <h3>Añadir arítica</h3>
+            <h3>Crítica</h3>
             <div class="d-flex justify-content-between">
-                <textarea id="opinion" name="w3review" rows="4" cols="50"></textarea>
+                <textarea id="opinion" name="review" [formControl]="textCritForm" rows="4" cols="50"></textarea>
                 <div>
-                    <input type="number" max="10" min="0">
-                    <button class="bt btn-lg btn-info"(click)='anyadir(peli.id)'> Comentar </button>
+                    <input type="number" max="10" min="0" [formControl]="numStForm">  
                 </div>
+                <button class="bt btn-lg btn-info"(click)='guardarCritica()' *ngIf='!existCrit'> Comentar </button>
+                <button class="bt btn-lg btn-info"(click)='editarCritica()' *ngIf='existCrit'> Editar </button>
             </div>
-            
+            <button class="bt btn-lg btn-info"(click)='eliminarCritica()' *ngIf='existCrit'> Eliminar crítica </button>
         </div>
     </div>
     

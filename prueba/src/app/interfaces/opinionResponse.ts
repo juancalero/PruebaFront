@@ -7,4 +7,6 @@ export interface OpinionData{
     id?: number;
     opinion?: string;
     valor?: number;
+    titulo?: string;
+    poster?: string;
 }

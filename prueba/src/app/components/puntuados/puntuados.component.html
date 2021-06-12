@@ -1,1 +1,17 @@
-<p>puntuados works!</p>
+<div class="mt-4 mb-4" id="bot">
+    <button class="bt btn-lg btn-info"(click)='volver()'>Volver</button>
+</div>
+<div class="mx-auto text-centre mt-2 mb-4" id="cont">
+    <h2>Listado de Comentarios</h2>
+    <div class="d-flex mt-5">
+        <div *ngFor="let elem of list" id="elem">
+            <img src="https://image.tmdb.org/t/p/w500/{{elem.data.poster}}" alt=" {{elem.data?.titulo}}">
+            <span>  {{elem.data.titulo}}  </span>
+            <span>  {{elem.data.opinion}}  </span>
+            <span>  {{elem.data.valor}}  </span>
+            
+            <button (click)='eliminar(elem)'>Eliminar</button>
+        </div>
+    </div>
+    
+</div>
